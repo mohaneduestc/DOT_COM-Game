@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 
 public class SimpleDotComTestDrive {
@@ -20,6 +19,9 @@ public class SimpleDotComTestDrive {
 //		create new object called dot
 		SimpleDotCom dot = new SimpleDotCom();
 		
+//		create new object called helper
+		GameHelper helper = new GameHelper();
+		
 //		set the location of DotCom
 		int [] locations ={renNum,renNum+1,renNum+2};
 		
@@ -28,17 +30,14 @@ public class SimpleDotComTestDrive {
 		
 		while(isAlive){
 			 // Create a Scanner object
-			 Scanner myObj = new Scanner(System.in); 
-			 System.out.println("Guess Your Number");
-
-			 String userGuess = myObj.nextLine(); 
+			String userGuess = helper.getUserInput("enter a number");
 
 			 numOfGuesses++;
 //		invoke checkYourself on the dot
 			result = dot.checkYourself(userGuess);
 			if(result.equals("Kill"))
 				isAlive=false;
-				
+		
 		}
 		System.out.println("You took "+numOfGuesses+ " guesses");
 	}
